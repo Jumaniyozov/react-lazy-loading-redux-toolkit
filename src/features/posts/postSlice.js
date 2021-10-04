@@ -1,5 +1,4 @@
 import {createAsyncThunk} from "@reduxjs/toolkit";
-import {useSelector} from "react-redux";
 
 const {createSlice} = require("@reduxjs/toolkit");
 
@@ -39,6 +38,11 @@ const postSlice = createSlice({
             state.partialPosts = [...state.partialPosts, ...action.payload];
             state.currentAppender += 1;
         },
+        cleanPartialPosts: (state, action) => {
+            state.loading = false;
+            state.partialPosts = [];
+            state.currentAppender = 0;
+        }
     },
     extraReducers: {
 
@@ -57,7 +61,8 @@ const postSlice = createSlice({
 
 export const {
     setPartialPosts,
-    appendPartialPosts
+    appendPartialPosts,
+    cleanPartialPosts
 } = postSlice.actions;
 
 export default postSlice.reducer;

@@ -1,9 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import './App.css';
-import {useDispatch, useSelector} from "react-redux";
-import {fetchPosts, getPostStates} from "./features/posts/postSlice";
 import NavbarComponent from "./components/Navbar.component";
-import {BrowserRouter, Route, Router} from "react-router-dom";
+import {BrowserRouter, Route} from "react-router-dom";
 import HomePage from "./components/Home.page";
 import AccountPage from "./components/Account.page";
 

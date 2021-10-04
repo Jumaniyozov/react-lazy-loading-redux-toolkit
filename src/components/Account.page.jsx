@@ -1,19 +1,17 @@
 import React, {useEffect, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {fetchPosts, getPostStates} from "../features/posts/postSlice";
-import {BrowserRouter} from "react-router-dom";
-import NavbarComponent from "./Navbar.component";
 import LoaderComponent from "./Loader.Component";
 import ItemComponent from "./ItemComponent";
 
 const AccountPage = () => {
-    const {loading, posts, errors} = useSelector(getPostStates);
+    const {loading, posts} = useSelector(getPostStates);
     const dispatch = useDispatch();
     const [post, setPost] = useState({});
 
     useEffect(() => {
         dispatch(fetchPosts());
-    }, []);
+    }, [dispatch]);
 
     useEffect(() => {
         if (posts.length !== 0) {
